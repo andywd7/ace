@@ -1,0 +1,33 @@
+// .dropdown-menu {
+//   // border-top: 3px solid $primary;
+//   // font-size: $font-size-base;
+//   // padding: 0;
+// }
+
+// .dropdown-toggle {
+//   &::after {
+//     // vertical-align: rem(1px);
+//   }
+// }
+
+.dropdown-item {
+  border-bottom: 1px solid $dropdown-border-color;
+  // cursor: pointer;
+  // line-height: 1.2;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.b-nav-dropdown {
+  &.show {
+    background-color: $dropdown-bg;
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  .dropdown-menu {
+    border-top-right-radius: 0;
+    margin-top: 1px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "reboot";
+@import "buttons";
+@import "card";
+@import "forms";
+@import "input-group";
+@import "list-group";
+@import "dropdown";
+@import "tables";
+@import "modal";
+
+.container {
+  @include media-breakpoint-up(sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

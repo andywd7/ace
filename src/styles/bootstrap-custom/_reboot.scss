@@ -1,0 +1,12 @@
+body {
+  overflow-x: hidden;
+
+  @include media-breakpoint-up(md) {
+    overflow-x: auto;
+  }
+}
+
+// label,
+// legend {
+//   // font-weight: $nt-font-weight-medium;
+// }
