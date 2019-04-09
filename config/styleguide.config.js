@@ -1,7 +1,7 @@
 const path = require('path')
-const baseConfig = require('./build/webpack.base.conf.js')
-const merge = require('webpack-merge')
-const packageConfig = require('./package.json')
+// const baseConfig = require('../build/webpack.base.conf.js')
+// const merge = require('webpack-merge')
+const packageConfig = require('../package.json')
 // const chalk = require('chalk')
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
       monospace: ['Consolas', "'Liberation Mono'", 'Menlo', 'monospace']
     }
   },
-  renderRootJsx: path.join(__dirname, 'docs/components/Preview.js'),
+  renderRootJsx: path.join(__dirname, '../docs/components/Preview.js'),
   /**
    * Define a custom code highlighting theme.
    */
@@ -31,7 +31,7 @@ module.exports = {
   /**
    * Path to static assets directory
    */
-  assetsDir: path.join(__dirname, 'src/assets'),
+  assetsDir: path.join(__dirname, '../src/assets'),
   /**
    * Enabling the below option will break things in Vue Design System!
    */
@@ -40,8 +40,8 @@ module.exports = {
    * We’re defining below JS and SCSS requires for the documentation.
    */
   require: [
-    path.join(__dirname, 'docs/docs.helper.js'),
-    path.join(__dirname, 'docs/styles/docs.styles.scss')
+    path.join(__dirname, '../docs/docs.helper.js'),
+    path.join(__dirname, '../docs/styles/docs.styles.scss')
   ],
   /**
    * Enabling the following option splits sections into separate views.
@@ -50,59 +50,38 @@ module.exports = {
   sections: [
     {
       name: 'Getting Started',
-      content: 'docs/getting-started.md',
+      content: '../docs/getting-started.md',
       // Needs to be loaded in somewhere as this is also shown in
       // element, Pattern & Template overviews.
       components: () => [
-        'docs/components/status/Components.vue'
+        '../docs/components/status/Components.vue'
       ],
       sectionDepth: 1,
       exampleMode: 'hide',
       usageMode: 'hide'
     },
     {
-      name: 'Design Principles',
-      content: 'docs/principles.md',
+      name: 'Design Tokens',
+      content: '../docs/tokens.md',
       sectionDepth: 1,
       exampleMode: 'hide',
-      usageMode: 'hide'
+      usageMode: 'hide',
+      components: () => [
+        '../docs/components/tokens/All.vue',
+        '../docs/components/tokens/Color.vue',
+        '../docs/components/tokens/FontSize.vue',
+        '../docs/components/tokens/Spacing.vue'
+      ]
     },
-    {
-      name: 'Voice & Tone',
-      content: 'docs/voice-and-tone.md',
-      sectionDepth: 1,
-      exampleMode: 'hide',
-      usageMode: 'hide'
-    },
-    // {
-    //   name: 'Design Tokens',
-    //   content: '../docs/tokens.md',
-    //   sectionDepth: 1,
-    //   exampleMode: 'hide',
-    //   usageMode: 'hide',
-    //   components: () => [
-    //     '../docs/components/tokens/All.vue',
-    //     '../docs/components/tokens/Color.vue',
-    //     '../docs/components/tokens/FontSize.vue',
-    //     '../docs/components/tokens/Spacing.vue'
-    //   ]
-    // },
     {
       name: 'Elements',
-      content: 'docs/elements.md',
+      content: '../docs/elements.md',
       components: () => [
-        'src/components/**/[A-Z]*.vue'
+        '../src/components/**/[A-Z]*.vue'
       ],
       exampleMode: 'expand',
       usageMode: 'expand',
       sectionDepth: 2
-    },
-    {
-      name: 'Downloads',
-      content: 'docs/downloads.md',
-      exampleMode: 'hide',
-      usageMode: 'hide',
-      sectionDepth: 1
     },
     {
       /**
@@ -113,7 +92,7 @@ module.exports = {
       name: 'Private Components',
       exampleMode: 'hide',
       usageMode: 'hide',
-      components: 'src/**/[_]*.vue'
+      components: '../src/**/[_]*.vue'
     }
   ],
   /**
@@ -153,31 +132,5 @@ module.exports = {
     '**/*.spec.js',
     '**/*.spec.jsx',
     '**/ExampleComponent.vue'
-  ],
-  webpackConfig: merge(baseConfig, {
-    module: {
-      rules: [
-        {
-          test: /\.(css?|scss|sass)(\?.*)?$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'postcss-loader',
-            'sass-loader',
-            {
-              loader: 'sass-resources-loader',
-              options: {
-                resources: [
-                  path.join(__dirname, 'src/assets/tokens/tokens.scss'),
-                  path.join(__dirname, 'src/assets/tokens/tokens.map.scss'),
-                  path.join(__dirname, 'src/styles/toolbox.scss'),
-                  path.join(__dirname, 'docs/styles/docs.toolbox.scss')
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    }
-  })
+  ]
 }

@@ -1,10 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope, react/no-this-in-sfc */
 
-import { storiesOf } from './node_modules/@storybook/vue'
-import { boolean, radios, select, text } from './node_modules/@storybook/addon-knobs'
+import { storiesOf } from '@storybook/vue'
+import { boolean, radios, select, text } from '@storybook/addon-knobs'
 import icons from '../../_storybook/utils/font-icons-helper'
 
-import NtIcon from './nt-icon'
+import NtIcon from './NtIcon'
 
 const stories = storiesOf('Components|Icon', module)
 

@@ -8,12 +8,12 @@ import WebFontLoader from '../src/utils/webFontLoader' // eslint-disable-line no
 import statusLabels from './utils/statusLabels'
 import activeNav from './utils/activeNav'
 import filterSearch from './utils/filterSearch'
-// import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue'
 import 'codemirror/mode/jsx/jsx'
 
 import '../src/styles/styles.scss'
 
-// Vue.use(BootstrapVue)
+Vue.use(BootstrapVue)
 
 Vue.config.productionTip = false
 Vue.mixin(statusLabels)

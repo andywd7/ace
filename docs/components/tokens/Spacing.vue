@@ -1,8 +1,7 @@
 <template>
   <div class="spacing">
     <div
-      v-for="(prop, index) in tokens"
-      v-if="prop.category === 'space'"
+      v-for="(prop, index) in spacingTokens"
       :key="index"
       class="space"
       :style="{ lineHeight: prop.value, height: prop.value }"
@@ -31,6 +30,11 @@ export default {
       tokens: this.orderData(designTokens.props)
     }
   },
+  computed: {
+    spacingTokens () {
+      return this.tokens.filter(token => token.category.includes('space'))
+    }
+  },
   methods: {
     orderData: function (data) {
       let order = orderBy(data, 'category', 'asc')
@@ -41,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
+@import "../../styles/docs.toolbox.scss";
 
 /* STYLES
 --------------------------------------------- */

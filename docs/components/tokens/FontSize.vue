@@ -1,8 +1,7 @@
 <template>
   <div class="font-sizes">
     <div
-      v-for="(prop, index) in tokens"
-      v-if="prop.category === 'font-size'"
+      v-for="(prop, index) in fontSizeTokens"
       :key="index"
       class="font"
       :style="{ fontSize: prop.value }"
@@ -30,6 +29,11 @@ export default {
       tokens: this.orderData(designTokens.props)
     }
   },
+  computed: {
+    fontSizeTokens () {
+      return this.tokens.filter(token => token.category.includes('font-size'))
+    }
+  },
   methods: {
     orderData: function (data) {
       let order = orderBy(data, 'value', 'desc')
@@ -40,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
+@import "../../styles/docs.toolbox.scss";
 
 /* STYLES
 --------------------------------------------- */

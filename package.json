@@ -6,15 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "styleguide": "vue-cli-service styleguidist",
+    "styleguide": "vue-cli-service styleguidist --config ./config/styleguide.config.js",
     "styleguide:build": "vue-cli-service styleguidist:build",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.0.0-rc.16",
     "core-js": "^2.6.5",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",

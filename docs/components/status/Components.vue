@@ -149,7 +149,7 @@
 // import designTokens from "@/assets/tokens/tokens.raw.json"
 import designTokens from '../../../src/assets/tokens/tokens.raw.json'
 import orderBy from 'lodash/orderBy'
-import NtIcon from '../../../src/components/nt-icon/nt-icon'
+import NtIcon from '../../../src/components/NtIcon/NtIcon'
 
 export default {
   name: 'Components',
@@ -198,7 +198,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../docs.tokens.scss";
+@import "../../styles/docs.toolbox.scss";
 
 .component-status {
   @include reset;
