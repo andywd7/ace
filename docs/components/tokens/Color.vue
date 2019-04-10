@@ -48,11 +48,8 @@ export default {
     colors () {
       let colorGroup = this.tokens
         .filter(color => color.category.includes('color_group'))
-      let colors = colorGroup.slice().sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }))
-      let color = groupBy(colors, ('category'))
-      console.log(color)
-      // let col = color.slice().sort((a, b) => a.color.localeCompare(b.color, undefined, { numeric: true }))
-      // let col = color.localeCompare('100', undefined, { numeric: true, sensitivity: 'base' })
+      let colorName = colorGroup.sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }), 'category')
+      let color = groupBy(orderBy(colorName, 'category'), 'category')
       return color
     }
   },

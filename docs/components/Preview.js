@@ -58,7 +58,7 @@ export default previewComponent => {
           CodeMirror(
             function (code) {
               elem.parentNode.replaceChild(code, elem)
-              code.className += ' vueds-html vueds-hidden'
+              code.className += ' ace-html ace-hidden'
             },
             {
               value: pre.innerText || pre.textContent,

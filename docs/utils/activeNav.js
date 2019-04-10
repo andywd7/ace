@@ -1,15 +1,15 @@
 /**
- * This is Vue Design System’s helper util that
+ * This is Netace’s helper util that
  * highlights the currently active nav item.
  */
 
 export default {
   methods: {
     clearActiveLinks () {
-      const activeLinks = document.querySelectorAll('.vueds-active')
+      const activeLinks = document.querySelectorAll('.ace-active')
       if (activeLinks) {
         ;[].forEach.call(activeLinks, function (element) {
-          element.classList.remove('vueds-active')
+          element.classList.remove('ace-active')
         })
       }
     },
@@ -19,12 +19,12 @@ export default {
       } else {
         this.methods.clearActiveLinks()
       }
-      event.target.parentNode.classList.add('vueds-active')
+      event.target.parentNode.classList.add('ace-active')
 
       // When clicking a sub link
       const parent = event.target.parentNode.parentNode.parentNode
       if (parent && parent.className.match(/(rsg--item)/)) {
-        parent.classList.add('vueds-active')
+        parent.classList.add('ace-active')
       }
     },
     init () {
@@ -53,13 +53,13 @@ export default {
 
         if (currentURL) {
           if (currentPage) {
-            currentPage.parentNode.classList.add('vueds-active')
+            currentPage.parentNode.classList.add('ace-active')
             const parent = currentPage.parentNode.parentNode.parentNode
             if (parent.className.match(/(rsg--item)/)) {
-              currentPage.parentNode.parentNode.parentNode.classList.add('vueds-active')
+              currentPage.parentNode.parentNode.parentNode.classList.add('ace-active')
             }
           } else if (currentURL === '/' && sidebar.querySelectorAll('a')[0].parentNode) {
-            sidebar.querySelectorAll('a')[0].parentNode.classList.add('vueds-active')
+            sidebar.querySelectorAll('a')[0].parentNode.classList.add('ace-active')
           }
         }
 

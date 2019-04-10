@@ -3,7 +3,7 @@
  * (the odd formatting hence most of the classes are dynamic)
  */
 
-@import "../../src/assets/tokens/tokens.scss";
+// @import "../../src/assets/tokens/tokens.scss";
 @import "docs.toolbox.scss";
 
 /* LOCAL DESIGN TOKENS
@@ -279,7 +279,7 @@ div[class^="rsg--sidebar"] {
   // Sidebar sub navigations
   ul ul[class^="rsg--list"] {
     display: none;
-    &.vueds-visible {
+    &.ace-visible {
       display: block;
     }
   }
@@ -310,7 +310,7 @@ div[class^="rsg--sidebar"] {
   }
 
   // Sidebar active link
-  .vueds-active {
+  .ace-active {
     ul[class^="rsg--list"] {
       display: block;
     }
@@ -406,7 +406,7 @@ thead[class^="rsg--tableHead"] {
 
 // Codemirror and markdown code blocks
 pre[class^="rsg--pre"],
-.vueds-html.cm-s-night.CodeMirror,
+.ace-html.cm-s-night.CodeMirror,
 .react-codemirror2 .CodeMirror.CodeMirror {
   background: $color-surface-100;
   border-bottom-left-radius: $radius-default;
@@ -436,14 +436,14 @@ pre[class^="rsg--pre"],
 }
 
 // HTML preview needs some padding adjustments to match Styleguidist
-.vueds-html.cm-s-night.CodeMirror {
+.ace-html.cm-s-night.CodeMirror {
   padding-left: $space-m - 4px;
 }
 
 // VUE & HTML Code tabs
 div[class^="rsg--tab"] {
   position: relative;
-  .vueds-tabs {
+  .ace-tabs {
     z-index: 5;
     border-radius: $radius-default;
     box-shadow: 0 2px 8px rgba($color-rich-black, 0.8);
@@ -451,7 +451,7 @@ div[class^="rsg--tab"] {
     position: absolute;
     top: $space-m;
     right: $space-m;
-    .vueds-tab {
+    .ace-tab {
       border: 0;
       margin: 0;
       letter-spacing: $spacing-l;
@@ -478,7 +478,7 @@ div[class^="rsg--tab"] {
 }
 
 // Hidden HTML/VUE code preview
-.vueds-hidden {
+.ace-hidden {
   opacity: 0;
   visibility: hidden;
   z-index: -1;
@@ -598,7 +598,7 @@ div[class^="rsg--root"] div[class^="rsg--tabs"] {
 /* TABLES
 --------------------------------------------- */
 
-// Global tr setting so that vueds custom components use this as well
+// Global tr setting so that ace custom components use this as well
 tr {
   transition: background-color 0.1s ease;
   &:hover {

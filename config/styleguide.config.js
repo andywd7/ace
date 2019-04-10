@@ -2,13 +2,14 @@ const path = require('path')
 // const baseConfig = require('../build/webpack.base.conf.js')
 // const merge = require('webpack-merge')
 const packageConfig = require('../package.json')
-// const chalk = require('chalk')
+const chalk = require('chalk')
+const docTokens = require('../docs/docs.tokens.json')
 
 module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: 'Netace Design System',
+  title: 'Netace',
   /**
    * Most of the styles are defined in /docs/styles/docs.styles.scss
    */
@@ -17,7 +18,7 @@ module.exports = {
     maxWidth: '100%',
     sidebarWidth: 240,
     fontFamily: {
-      base: ["'Roboto'", 'Helvetica', 'Arial', 'sans-serif'],
+      base: [docTokens.props.font_text.value],
       monospace: ['Consolas', "'Liberation Mono'", 'Menlo', 'monospace']
     }
   },
@@ -33,7 +34,7 @@ module.exports = {
    */
   assetsDir: path.join(__dirname, '../src/assets'),
   /**
-   * Enabling the below option will break things in Vue Design System!
+   * Enabling the below option will break things in Netace!
    */
   skipComponentsWithoutExample: false,
   /**
@@ -132,5 +133,26 @@ module.exports = {
     '**/*.spec.js',
     '**/*.spec.jsx',
     '**/ExampleComponent.vue'
-  ]
+  ],
+  styleguideDir: '../dist/docs',
+  printServerInstructions () {},
+  printBuildInstructions (config) {
+    console.log(chalk.cyan('\n  Design System Docs build finished succesfully!\n'))
+    console.log(
+      chalk.yellow(
+        '  Tip: You can now deploy the docs as a static website.\n' +
+          '  Copy the build files from ' +
+          `${config.styleguideDir}\n`
+      )
+    )
+  }
+  /**
+   * Configure docs server to redirect asset queries
+   */
+  // configureServer(app) {
+  //   // `app` is the instance of the express server running the docs
+  //   app.get("/assets/:file", (req, res) => {
+  //     res.redirect(req.params.file)
+  //   })
+  // }
 }

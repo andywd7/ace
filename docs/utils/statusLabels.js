@@ -1,5 +1,5 @@
 /**
- * This is Vue Design System’s helper util that
+ * This is Netace’s helper util that
  * creates component status labels.
  */
 

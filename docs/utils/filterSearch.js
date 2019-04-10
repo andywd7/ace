@@ -1,5 +1,5 @@
 /**
- * This is Vue Design System’s helper util that makes
+ * This is Netace’s helper util that makes
  * sure that filtering will reveal hidden links too.
  */
 
@@ -11,15 +11,15 @@ export default {
       )
       if (links) {
         ;[].forEach.call(links, function (element) {
-          element.classList.add('vueds-visible')
+          element.classList.add('ace-visible')
         })
       }
     },
     hideLinks () {
-      const activeLinks = document.querySelectorAll('.vueds-visible')
+      const activeLinks = document.querySelectorAll('.ace-visible')
       if (activeLinks) {
         ;[].forEach.call(activeLinks, function (element) {
-          element.classList.remove('vueds-visible')
+          element.classList.remove('ace-visible')
         })
       }
     },

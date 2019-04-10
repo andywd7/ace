@@ -3,7 +3,6 @@ const baseConfig = require('../build/webpack.base.conf.js')
 const merge = require('webpack-merge')
 const packageConfig = require('../package.json')
 const chalk = require('chalk')
-const designTokens = require('../src/assets/tokens/tokens.raw.json')
 
 module.exports = {
   /**
@@ -18,7 +17,7 @@ module.exports = {
     maxWidth: '100%',
     sidebarWidth: 240,
     fontFamily: {
-      base: [designTokens.props.font_text.value],
+      base: ["'Roboto'", 'Helvetica', 'Arial', 'sans-serif'],
       monospace: ['Consolas', "'Liberation Mono'", 'Menlo', 'monospace']
     }
   },

@@ -1,11 +1,11 @@
 /**
- * This is Vue Design System’s helper util for code tabs
+ * This is Netace’s helper util for code tabs
  */
 
 export default {
   clean () {
-    const oldElem = document.querySelector('.vueds-html')
-    const oldTabs = document.querySelector('.vueds-tabs')
+    const oldElem = document.querySelector('.ace-html')
+    const oldTabs = document.querySelector('.ace-tabs')
     if (oldElem) {
       oldElem.parentNode.removeChild(oldElem)
     }
@@ -15,25 +15,25 @@ export default {
   },
   create () {
     const tabs = document.createElement('div')
-    tabs.className = 'vueds-tabs'
+    tabs.className = 'ace-tabs'
     tabs.innerHTML =
-      "<button class='vueds-tab vue vueds-tab--active'>VUE</button><button class='vueds-tab html'>HTML</button>"
+      "<button class='ace-tab vue ace-tab--active'>VUE</button><button class='ace-tab html'>HTML</button>"
     return tabs
   },
   init () {
-    const tabs = document.querySelectorAll('.vueds-tab')
+    const tabs = document.querySelectorAll('.ace-tab')
     if (tabs) {
       tabs.forEach(function (element) {
         element.addEventListener('click', event => {
           event.preventDefault()
-          document.querySelector('.vueds-tab--active').classList.remove('vueds-tab--active')
-          element.classList.add('vueds-tab--active')
-          document.querySelector('.vueds-hidden').classList.remove('vueds-hidden')
+          document.querySelector('.ace-tab--active').classList.remove('ace-tab--active')
+          element.classList.add('ace-tab--active')
+          document.querySelector('.ace-hidden').classList.remove('ace-hidden')
           if (event.target.classList.contains('html')) {
             const container = document.querySelector("article div[class^='rsg--tab']")
-            container.querySelector('div').classList.add('vueds-hidden')
+            container.querySelector('div').classList.add('ace-hidden')
           } else {
-            document.querySelector('.vueds-html').classList.add('vueds-hidden')
+            document.querySelector('.ace-html').classList.add('ace-hidden')
           }
         })
       })
