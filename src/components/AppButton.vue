@@ -1,7 +1,7 @@
 <template>
   <b-btn @click="handleClick">
     <!-- @slot Use this slot to place the button content -->
-    <slot></slot>
+    <slot />
   </b-btn>
 </template>
 
@@ -26,7 +26,10 @@ export default {
       default: 'white'
     },
     /** @deprecated Use color instead */
-    oldColor: String
+    oldColor: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     /** Triggered when button is clicked
