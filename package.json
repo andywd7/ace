@@ -1,6 +1,21 @@
 {
   "name": "netace",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "Netace - Storybook, Styleguidist and component library.",
+  "author": "Andy Denham",
+  "license": "MIT",
+  "main": "dist/system/system.js",
+  "files": [
+    "dist/system"
+  ],
+  "keywords": [
+    "netace",
+    "design system",
+    "vue.js",
+    "vue",
+    "design",
+    "system"
+  ],
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
