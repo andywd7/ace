@@ -18,9 +18,17 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 Vue.mixin(statusLabels)
 
-// Vue.component('RouterLink', {
-//   template: `<a><slot></slot></a>`
-// })
+Vue.component('RouterLink', {
+  props: {
+    tag: {
+      default: 'a',
+      type: String
+    }
+  },
+  render (createElement) {
+    return createElement(this.tag, {}, this.$slots.default)
+  }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   filterSearch.methods.init()

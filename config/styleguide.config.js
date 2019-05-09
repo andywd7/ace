@@ -40,7 +40,6 @@ module.exports = {
    * We’re defining below JS and SCSS requires for the documentation.
    */
   require: [
-    path.join(__dirname, './styleguide.global.requires.js'),
     path.join(__dirname, '../docs/docs.helper.js'),
     path.join(__dirname, '../docs/styles/docs.styles.scss')
   ],
@@ -83,17 +82,6 @@ module.exports = {
       exampleMode: 'expand',
       usageMode: 'expand',
       sectionDepth: 2
-    },
-    {
-      /**
-       * Private components have to be loaded into the documentation as well,
-       * otherwise anything using them will be broken. We’re loading them in
-       * their own section, which then gets hidden in docs/styles/docs.styles.scss
-       */
-      name: 'Private Components',
-      exampleMode: 'hide',
-      usageMode: 'hide',
-      components: '../src/**/[_]*.vue'
     }
   ],
   /**
@@ -145,6 +133,20 @@ module.exports = {
           `${config.styleguideDir}\n`
       )
     )
+  },
+  dangerouslyUpdateWebpackConfig (webpackConfig) {
+    let filteredFirstHMR = false
+
+    webpackConfig.plugins = webpackConfig.plugins.filter(plugin => {
+      if (plugin.constructor.name === 'HotModuleReplacementPlugin' && !filteredFirstHMR) {
+        filteredFirstHMR = true
+        return false
+      }
+
+      return true
+    })
+
+    return webpackConfig
   }
   /**
    * Configure docs server to redirect asset queries
