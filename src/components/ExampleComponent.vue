@@ -1,12 +1,13 @@
 <template>
-  <component :is="type" :class="['example', variation]">
-    <div id="Example-container">
-      <slot />
-    </div>
-  </component>
+  <b-btn :style="styles" :class="['example', variation]" @click="handleClick">
+    <!-- @slot Use this slot to place the button content -->
+    <slot />
+  </b-btn>
 </template>
 
 <script>
+import sizeMixin from './_mixins/sizeMixin'
+
 /**
  * Example component is used to visually communicate core parts of the product
  * and available actions.
@@ -15,7 +16,7 @@ export default {
   /**
    * Component names should be short, pronounceable and Capitalized.
    */
-  name: 'Example',
+  name: 'ExampleComponent',
   /**
    * Components in the system are labelled with status labels that reflect their
    * state of completion. See example below. All available statuses are:
@@ -32,54 +33,80 @@ export default {
    * Release indicates when this component was added into the system.
    * (in which design system version)
    */
-  release: '1.0.0',
+  release: '0.0.1',
+  mixins: [sizeMixin],
   /**
    * Prop definitions should be as detailed as possible, specifying at least
    * type(s). See examples below:
    */
   props: {
-    /**
-     * The html element name used for the container of Example component.
+    /** Sets background color of the button
+     * @since 1.2.0
      */
-    type: {
+    background: {
       type: String,
-      default: 'div'
+      default: 'white'
+    },
+    /** @deprecated Use color instead */
+    oldType: {
+      type: String,
+      default: 'span'
     },
     /**
      * Style variation to give additional meaning.
-     * `default, strong, positive, negative`
+     * `primary, danger, success`
      */
     variation: {
       type: String,
-      default: 'default',
+      default: '',
       validator: value => {
-        return value.match(/(default|strong|positive|negative)/)
+        return value.match(/(|primary|danger|success)/)
       }
+    }
+  },
+  computed: {
+    styles () {
+      return {
+        'font-size': this.size,
+        // color: this.color,
+        background: this.background
+      }
+    }
+  },
+  methods: {
+    /** Triggered when button is clicked
+     * @event click
+     * @type {Event}
+     */
+    /** Event for Alligator's example
+     * @event gator
+     * @type {Event}
+     */
+    handleClick (e) {
+      this.$emit('click', e)
+      this.$emit('gator', e)
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+@import "../../docs/styles/docs.toolbox.scss";
 /**
  * Styles in a top-level App component and in layout components may be global,
  * but all other components should always be scoped (using either scoped
  * attribute or class based scoping).
  */
 .example {
-  @include reset;
-  @include stack-space($space-m);
-  color: set-text-color($color-rich-black, $color-white);
-  @media #{$media-query-m} {
-    @include stack-space($space-xl);
-  }
+  color: set-text-color($color-primary-50, $color-white);
 }
 </style>
 
 <docs>
-  ```jsx
-  <Example>
-    Docs section should have an example that is shown in the documentation.
-  </Example>
-  ```
+## Examples
+Docs section should have an example that is shown in the documentation.
+
+```jsx
+<example-component>Push me</example-component>
+```
 </docs>

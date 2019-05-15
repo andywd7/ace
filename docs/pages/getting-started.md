@@ -5,5 +5,5 @@ You’re looking at [Netace’s](https://ace.com/) demo documentation and compon
 ## System Overview
 
 ```
-<components />
+<status />
 ```

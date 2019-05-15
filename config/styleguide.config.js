@@ -19,7 +19,7 @@ module.exports = {
     sidebarWidth: 240,
     fontFamily: {
       base: [docTokens.props.font_text.value],
-      monospace: ['Consolas', "'Liberation Mono'", 'Menlo', 'monospace']
+      monospace: ['SFMono-Regular', 'Consolas', '"Liberation Mono"', 'Menlo', 'Courier', 'monospace']
     }
   },
   /**
@@ -50,33 +50,35 @@ module.exports = {
   sections: [
     {
       name: 'Getting Started',
-      content: '../docs/getting-started.md',
+      content: '../docs/pages/getting-started.md',
       // Needs to be loaded in somewhere as this is also shown in
       // element, Pattern & Template overviews.
-      components: () => [
-        '../docs/components/status/Components.vue'
-      ],
+      // components: () => [
+      //   '../docs/components/status/Status.vue'
+      // ],
       sectionDepth: 1,
       exampleMode: 'hide',
       usageMode: 'hide'
     },
     {
-      name: 'Design Tokens',
-      content: '../docs/tokens.md',
+      name: 'Foundations',
+      content: '../docs/pages/foundations.md',
       sectionDepth: 1,
       exampleMode: 'hide',
       usageMode: 'hide',
       components: () => [
-        '../docs/components/tokens/All.vue',
+        '../docs/components/status/Deck.vue',
         '../docs/components/tokens/Color.vue',
-        '../docs/components/tokens/FontSize.vue',
-        '../docs/components/tokens/Spacing.vue'
+        '../docs/components/tokens/DesignTokens.vue',
+        '../docs/components/tokens/Spacing.vue',
+        '../docs/components/tokens/Typography.vue'
       ]
     },
     {
-      name: 'Elements',
-      content: '../docs/elements.md',
+      name: 'Components',
+      content: '../docs/pages/components.md',
       components: () => [
+        '../docs/components/status/Status.vue',
         '../src/components/**/[A-Z]*.vue'
       ],
       exampleMode: 'expand',
@@ -122,6 +124,9 @@ module.exports = {
     '**/*.spec.jsx',
     '**/ExampleComponent.vue'
   ],
+  styleguideComponents: {
+    ComponentsListRenderer: path.join(__dirname, '../styleguide/components/ComponentsList')
+  },
   styleguideDir: '../dist/docs',
   printServerInstructions () {},
   printBuildInstructions (config) {

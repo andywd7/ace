@@ -31,11 +31,8 @@
     <table>
       <thead>
         <tr>
-          <th v-if="show === 'all'">
+          <th>
             Component Name
-          </th>
-          <th v-if="show === 'elements'">
-            Element Name
           </th>
           <th>Released in</th>
           <th>Status</th>
@@ -152,18 +149,9 @@ import orderBy from 'lodash/orderBy'
 import NtIcon from '../../../src/components/NtIcon/NtIcon'
 
 export default {
-  name: 'Components',
+  name: 'Status',
   components: {
     NtIcon
-  },
-  props: {
-    show: {
-      type: String,
-      default: 'all',
-      validator: value => {
-        return value.match(/(all|elements)/)
-      }
-    }
   },
   data () {
     return {
@@ -175,13 +163,9 @@ export default {
     getComponents: function () {
       let contexts
 
-      if (this.show === 'all') {
-        contexts = [
-          require.context('../../../src/components/', true, /\.vue$/)
-        ]
-      } else if (this.show === 'elements') {
-        contexts = [require.context('../../../src/components/', true, /\.vue$/)]
-      }
+      contexts = [
+        require.context('../../../src/components/', true, /\.vue$/)
+      ]
 
       const components = []
       contexts.forEach(context => {
@@ -299,7 +283,7 @@ export default {
 </style>
 
 <docs>
-  ```jsx
-  <components />
+  ```jsx noeditor
+  <status />
   ```
 </docs>

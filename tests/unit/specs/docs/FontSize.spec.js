@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import FontSize from '../../../../docs/components/tokens/FontSize.vue'
+import Typography from '../../../../docs/components/tokens/Typography.vue'
 
-const Constructor = Vue.extend(FontSize)
+const Constructor = Vue.extend(Typography)
 const vm = new Constructor().$mount()
 
-describe('FontSize.vue', () => {
+describe('Typography.vue', () => {
   it('should render correct contents', () => {
     expect(vm.$el.querySelector('.font')).toBeDefined()
   })

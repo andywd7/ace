@@ -3,7 +3,7 @@
  * (the odd formatting hence most of the classes are dynamic)
  */
 
-// @import "../../src/assets/tokens/tokens.scss";
+@import "../../src/assets/tokens/tokens.scss";
 @import "docs.toolbox.scss";
 
 /* LOCAL DESIGN TOKENS
@@ -14,15 +14,15 @@ $docs-grey-dark: #4d5865;
 $docs-status-ready: #7cb518;
 $docs-breakpoint: 800px;
 $docs-breakpoint-small: 600px;
-$docs-color-heading: rgb(30, 30, 30);
-$docs-color-text: shade($color-silver, 70%);
+$docs-color-heading: $color-surface-10;
+$docs-color-text: $color-surface-10;
 
 /* BASE
 --------------------------------------------- */
 
 // Background of page
 div.rsg--root-1 {
-  background: $color-white;
+  background: $color-surface-100;
 }
 
 // Main content
@@ -52,9 +52,9 @@ main section section > div > div[class^="rsg--root"] {
 
 // Link color
 div[class^="rsg--root"] a[class^="rsg--link"] {
-  color: $color-bleu-de-france;
+  color: $color-primary-30;
   &:hover {
-    color: $color-bleu-de-france-dark;
+    color: $color-primary-40;
   }
 }
 
@@ -64,11 +64,12 @@ div[class^="rsg--wrapper"] > h1[class^="rsg--heading"],
 div[class^="rsg--wrapper"] > h2[class^="rsg--heading"] {
   display: block;
   border: 0;
+  border-bottom: 1px solid $color-surface-80;
   line-height: $line-height-s;
   padding: $space-xl $space-xl;
   width: calc(100% + #{$space-xl * 2});
   margin: -#{$space-s} -#{$space-xl} $space-l -#{$space-xl};
-  background: $color-cloud;
+  background: $color-surface-100;
   font-size: $size-xxl;
   font-family: $font-family-heading;
   font-weight: $weight-light;
@@ -98,7 +99,7 @@ header[class^="rsg--header"] {
 // Links inside h1
 div[class^="rsg--wrapper"] > h1[class^="rsg--heading"] a {
   font-weight: $weight-light;
-  color: $color-oxford-blue;
+  color: $docs-color-heading;
   letter-spacing: 1px;
   &:hover {
     text-decoration: none;
@@ -109,9 +110,10 @@ div[class^="rsg--wrapper"] > h1[class^="rsg--heading"] a {
 // Heading, level 2
 h2[class^="rsg--heading"] {
   border-bottom: 1px solid $docs-grey;
+  color: $docs-color-heading;
   padding-bottom: $space-s;
   margin: $space-l 0 $space-m;
-  font-size: $size-l;
+  font-size: $size-xl;
   line-height: $line-height-s;
   font-weight: $weight-light;
   letter-spacing: 1px;
@@ -137,14 +139,14 @@ h3[class^="rsg--heading"] a {
   // font-family: $font-family-heading;
   font-weight: $weight-light;
   line-height: $line-height-m;
-  margin: 0 0 $space-l;
+  margin: 0;
   font-size: $size-l;
-  color: $docs-color-text;
+  color: $docs-color-heading;
   // text-transform: uppercase;
-  @media (max-width: #{$docs-breakpoint}) {
-    font-size: $size-l / 1.2;
-    margin: 0 0 $space-m;
-  }
+  // @media (max-width: #{$docs-breakpoint}) {
+  //   font-size: $size-l / 1.2;
+  //   margin: 0 0 $space-m;
+  // }
 }
 
 // Heading, level 4
@@ -161,7 +163,8 @@ h4[class^="rsg--heading"] a {
 }
 
 // Paragraphs
-p[class^="rsg--para"] {
+p[class^="rsg--para"],
+div[class^="rsg--para"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $docs-color-text;
@@ -173,8 +176,8 @@ p[class^="rsg--para"] {
   code {
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
-    background: tint($docs-grey, 75%);
-    color: shade($color-silver, 20%);
+    background: $color-surface-60;
+    color: $color-surface-10;
     padding: $space-xx-small;
     border-radius: $radius-default;
     font-size: 87.5%;
@@ -270,7 +273,7 @@ div[class^="rsg--search"] input {
 
 // Sets sidebar background
 div[class^="rsg--sidebar"] {
-  background: mix($color-bleu-de-france, $color-rich-black, 5%);
+  background: $color-surface-90;
   border: 0;
   @media (max-width: #{$docs-breakpoint}) {
     padding-bottom: $space-l;
@@ -296,16 +299,16 @@ div[class^="rsg--sidebar"] {
     -moz-osx-font-smoothing: grayscale;
     padding: $space-xx-small $space-m;
     font-weight: $weight-semi-bold;
-    color: $color-bleu-de-france;
+    color: $color-surface-20;
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     &:hover {
-      color: $color-bleu-de-france-lighter;
+      color: $color-surface-30;
     }
     &:active {
-      color: $color-bleu-de-france-dark;
+      color: $color-surface-40;
     }
   }
 
@@ -316,7 +319,7 @@ div[class^="rsg--sidebar"] {
     }
     & > a,
     & > a:hover {
-      color: tint($color-bleu-de-france, 80%);
+      color: $color-primary-40;
     }
   }
 
@@ -676,11 +679,6 @@ a[href="#private-components"] + ul {
 }
 
 // Hide Private components and placeholder sections
-ul a[href*="/#/Getting Started/Components"],
-// ul a[href*="/#/Design Tokens/Color"],
-// ul a[href*="/#/Design Tokens/Spacing"],
-// ul a[href*="/#/Design Tokens/FontSize"],
-ul a[href*="/#/Design Tokens/All"],
-ul a[href*="/#/Private Components"] {
+ul a[href*="/#/Foundations/Deck"] {
   display: none !important;
 }

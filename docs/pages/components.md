@@ -4,6 +4,6 @@ You’re looking at Netace’s demo <code>UI Elements</code>. Everything you see
 
 ## Overview
 
-```
-<components show="elements" />
+```jsx noeditor
+<deck />
 ```

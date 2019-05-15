@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import All from '../../../../docs/components/tokens/All.vue'
+import DesignTokens from '../../../../docs/components/tokens/DesignTokens.vue'
 
-const Constructor = Vue.extend(All)
+const Constructor = Vue.extend(DesignTokens)
 const vm = new Constructor().$mount()
 
-describe('All.vue', () => {
+describe('DesignTokens.vue', () => {
   it('should render correct contents', () => {
     expect(vm.$el.querySelector('.token')).toBeDefined()
   })

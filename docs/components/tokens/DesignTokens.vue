@@ -64,7 +64,9 @@ import orderBy from 'lodash/orderBy'
  * [/src/tokens/](https://github.com/viljamis/vue-design-system/blob/master/src/tokens).
  */
 export default {
-  name: 'All',
+  name: 'DesignTokens',
+  status: 'prototype',
+  release: '0.0.1',
   data () {
     return {
       tokens: this.orderData(designTokens.props)
@@ -173,6 +175,6 @@ export default {
 
 <docs>
   ```jsx
-  <all/>
+  <design-tokens />
   ```
 </docs>

@@ -23,7 +23,9 @@ import orderBy from 'lodash/orderBy'
  * [/src/tokens/font-size.yml](https://github.com/viljamis/vue-design-system/blob/master/src/tokens/font-size.yml).
  */
 export default {
-  name: 'FontSize',
+  name: 'Typography',
+  status: 'prototype',
+  release: '0.0.1',
   data () {
     return {
       tokens: this.orderData(designTokens.props)
@@ -77,6 +79,6 @@ export default {
 
 <docs>
   ```jsx
-  <FontSize/>
+  <typography />
   ```
 </docs>

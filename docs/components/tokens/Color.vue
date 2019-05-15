@@ -39,6 +39,8 @@ import groupBy from 'lodash/groupBy'
  */
 export default {
   name: 'Color',
+  status: 'prototype',
+  release: '0.0.1',
   data () {
     return {
       tokens: this.orderData(designTokens.props)
